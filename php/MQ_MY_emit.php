@@ -37,7 +37,7 @@ $queueName = "queueTest";
 $failedQueueName = "QueueTestFailed";
 $retryQueueName = "QueueTestRetry";
 
-$connection = new AMQPStreamConnection('localhost', 5672, 'admin', 'admin','/');
+$connection = new AMQPStreamConnection('localhost', 5673, 'admin', 'admin','/');
 $channel = $connection->channel();
 
 //每次接受消息的条数
@@ -113,7 +113,7 @@ $channel->set_nack_handler(
     }
 );
 //批量消息发布
-for ($i=0; $i < 5; $i++) { 
+for ($i=0; $i < 3; $i++) { 
 
     $message='hello';
     $msg = new AMQPMessage($message, [
