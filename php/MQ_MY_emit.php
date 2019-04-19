@@ -85,8 +85,8 @@ $channel->queue_declare(
     false,           // auto_delete
     false,           // nowait
     new AMQPTable([
-        'x-dead-letter-exchange' => $exchangeName,
-        'x-message-ttl'          => 30 * 1000,
+        'x-dead-letter-exchange' => $exchangeName,//死信重试消息队列
+        'x-message-ttl'          => 30 * 1000,//30秒重试
     ])
 );
 /**
